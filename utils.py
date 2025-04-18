@@ -3,9 +3,9 @@ from neo4j import GraphDatabase
 import pandas as pd
 
 # Neo4j connection
-NEO4J_URI = "neo4j+s://1cfd3f65.databases.neo4j.io"
-NEO4J_USERNAME = "neo4j"
-NEO4J_PASSWORD = "_OZjsANyMwrffOQhjKIA0vV4M0ZiwypGfnZysET7LTc"
+NEO4J_URI = ""
+NEO4J_USERNAME = ""
+NEO4J_PASSWORD = ""
 
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USERNAME, NEO4J_PASSWORD))
 
