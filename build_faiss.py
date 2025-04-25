@@ -1,4 +1,4 @@
-# ✅ File: build_faiss.py
+# File: build_faiss.py
 import pandas as pd
 import faiss
 import pickle
@@ -23,4 +23,4 @@ faiss.write_index(index, "faiss_index.bin")
 metadata = df[['book_id', 'title', 'original_title', 'authors', 'original_publication_year', 'tag_name']]
 with open("metadata.pkl", "wb") as f:
     pickle.dump(metadata.to_dict(orient="records"), f)
-print("✅ FAISS index and metadata saved.")
+print(" FAISS index and metadata saved.")
