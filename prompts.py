@@ -3,7 +3,7 @@ import re
 import google.generativeai as genai
 
 # Set up Gemini LLM
-genai.configure(api_key="")  # ✅ Direct API key usage
+genai.configure(api_key="")  
 model = genai.GenerativeModel("gemma-3-4b-it")
 
 def graph_prompt(question: str) -> str:
