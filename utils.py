@@ -1,4 +1,4 @@
-# ✅ File: utils.py
+# File: utils.py
 from neo4j import GraphDatabase
 import pandas as pd
 
@@ -9,7 +9,7 @@ NEO4J_PASSWORD = ""
 
 driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USERNAME, NEO4J_PASSWORD))
 
-# 🔁 Run Cypher query
+# Run Cypher query
 def run_cypher_query(cypher: str) -> pd.DataFrame:
     try:
         with driver.session() as session:
@@ -18,7 +18,7 @@ def run_cypher_query(cypher: str) -> pd.DataFrame:
     except Exception as e:
         return pd.DataFrame([{"error": str(e)}])
 
-# 📘 Neo4j schema string (for Gemini prompt context)
+#  Neo4j schema string (for Gemini prompt context)
 def get_schema_string() -> str:
     return """
 (:Book {book_id: int, title: string, year: int, rating: float, rating_count: int})
@@ -27,7 +27,7 @@ def get_schema_string() -> str:
 (:Book)-[:WRITTEN_BY]->(:Author)
 (:Book)-[:HAS_TAG]->(:Tag)
 """
-# ✅ Add this to utils.py
+# Add this to utils.py
 def format_kg_response(df):
     if df.empty:
         return "No results found in the Knowledge Graph."
