@@ -1,4 +1,4 @@
-# ✅ File: prompts.py
+# File: prompts.py
 import re
 import google.generativeai as genai
 
@@ -86,6 +86,6 @@ User question:
     response = model.generate_content(prompt)
     raw = response.text.strip()
 
-    # 🧼 Clean up markdown if any
+    #  Clean up markdown if any
     clean = re.sub(r"^```[\w]*", "", raw, flags=re.IGNORECASE).replace("```", "").strip()
     return clean
