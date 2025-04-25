@@ -1,4 +1,4 @@
-# ✅ File: agent.py
+# File: agent.py
 from langchain.tools import Tool
 from langchain.agents import initialize_agent, AgentType
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -6,14 +6,14 @@ from prompts import graph_prompt
 from utils import run_cypher_query, format_kg_response
 from faiss_search import search_books
 
-# ✅ Initialize Gemini LLM
+# Initialize Gemini LLM
 llm = ChatGoogleGenerativeAI(
     model="gemini-pro",
     temperature=0.3,
     convert_system_message_to_human=True
 )
 
-# 🧠 Tool 1: Knowledge Graph Tool
+# Tool 1: Knowledge Graph Tool
 def query_neo4j_agent_tool(question: str) -> str:
     cypher = graph_prompt(question)
     df = run_cypher_query(cypher)
@@ -21,7 +21,7 @@ def query_neo4j_agent_tool(question: str) -> str:
         return "No results from KG."
     return format_kg_response(df)
 
-# 🧠 Tool 2: FAISS Similarity Search
+# Tool 2: FAISS Similarity Search
 def semantic_search_tool(query: str) -> str:
     results = search_books(query)
     if not results:
@@ -38,7 +38,7 @@ tools = [
     Tool(name="SemanticSearch", func=semantic_search_tool, description="For book similarity or vague queries"),
 ]
 
-# 🧠 Advanced RAG-style Agent logic
+#  Advanced RAG-style Agent logic
 def run_agent(question: str) -> str:
     cypher = graph_prompt(question)
     df = run_cypher_query(cypher)
@@ -56,7 +56,7 @@ def run_agent(question: str) -> str:
     # Final fallback
     return semantic_search_tool(question)
 
-# 🔁 Optional: Direct KG interface for debugging
+# Optional: Direct KG interface for debugging
 
 def run_kg_direct(question: str):
     cypher = graph_prompt(question)
