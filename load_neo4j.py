@@ -1,4 +1,4 @@
-# ✅ File: load_neo4j.py
+#  File: load_neo4j.py
 import pandas as pd
 from neo4j import GraphDatabase
 
@@ -37,4 +37,4 @@ with driver.session() as session:
             tags[:3]
         )
 driver.close()
-print("✅ Book data loaded into Neo4j.")
+print(" Book data loaded into Neo4j.")
